@@ -1,5 +1,4 @@
 # 3D point cloud object detection in surface models via Graph Convolutional Networks (GCNs) and Voting module
-![Tensorflow](https://img.shields.io/badge/Implemented%20in-Tensorflow-green.svg) ![Python 3.6](https://img.shields.io/badge/python-3.6-blue.svg?style=plastic) <br>
 
 ## Context
 Future maritime operations will require mapping and describing the seafloor at high precision. On this basis, 
