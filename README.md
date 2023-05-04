@@ -72,7 +72,7 @@ the spatial continuity, as well as the angularity, circularity, width and height
 
 ## Usage
 Run with Python console, e.g. the train module:
-```
+```python
 python train.py --gpu_memory 0.2 --gpu_device 1 --model_folder model_001
 ```
 The above-witten options give you possibilities to limit the usage of GPU memory up to 20% for this training, 
@@ -80,7 +80,7 @@ considering the GPU device 1 (if your infrastructure consists of 2 or more GPUs)
 trained model `model_001` are restored.
 
 Running the _predict_ module will generate and display boxes for a given point cloud data folder:
-```
+```python
 python predict.py --data_folder folder_001 --semantics_only True
 ```
 If the option `--semantics_only` is set, only semantic segmentation of the point cloud will be generated.
