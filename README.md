@@ -35,7 +35,7 @@ orientation, at estimated object centroids (votes) - the module is implemented i
 |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
 | The suggested detection framework with a pyramid graph (backbone) network pooling and up-sampling graphs. The generated seeds consist of n points with C features plus 3 coordinates. Multilayer perceptrons (MLP) estimate object centers (votes) and semantic classes separately. The proposal module is a sub-network calculating m foreground bounding boxes (m≤n). Next, the proposals are clustered into k groups given the object centers. Finally, we obtain k 3D bounding boxes after applying a non-maximum-suppression (NMS) to each clustered proposal iteratively. |
 
-Assuming n_pos the number of foreground points in a batch, and K the batch size, the 3D boxes can be estimated 
+Assuming $n_pos$ the number of foreground points in a batch, and K the batch size, the 3D boxes can be estimated 
 using:
 
 * **(1) the regression loss**: assuming $n_pos$ the number of foreground points in a batch, and K the batch size
@@ -64,15 +64,15 @@ factors solving the class imbalance in segmentation task.
 Detection performance on 3D dataset is challenging due to the imprecise geometry of natural objects (geological mounds) i.e. 
 the spatial continuity, as well as the angularity, circularity, width and height, of such objects vary significantly.
 
-Example of training curves for semantic segmentation:
+**Example of training curves for semantic segmentation:**
 ![Semantic metric](./figures/semantic_metric.png)
 
-Example of boxes predicted:
+**Example of boxes predicted:**
 ![Point cloud](./figures/point_cloud_scene.png)
 
 ## Usage
 Run with Python console, e.g. the train module:
-```python
+```
 python train.py --gpu_memory 0.2 --gpu_device 1 --model_folder model_001
 ```
 The above-witten options give you possibilities to limit the usage of GPU memory up to 20% for this training, 
@@ -80,7 +80,7 @@ considering the GPU device 1 (if your infrastructure consists of 2 or more GPUs)
 trained model `model_001` are restored.
 
 Running the _predict_ module will generate and display boxes for a given point cloud data folder:
-```python
+```
 python predict.py --data_folder folder_001 --semantics_only True
 ```
 If the option `--semantics_only` is set, only semantic segmentation of the point cloud will be generated.
