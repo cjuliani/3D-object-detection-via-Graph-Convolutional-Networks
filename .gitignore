@@ -1,0 +1,11 @@
+.idea
+*__pycache__
+old
+resources
+results/summary/*
+results/weights/*
+dataset/training/*
+dataset/validation/*
+dataset/test/*
+dataset/to_detect/*
+dataset/to_visualize/
