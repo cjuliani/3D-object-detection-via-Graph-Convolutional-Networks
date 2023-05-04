@@ -1,6 +1,5 @@
 # 3D point cloud object detection in surface models via Graph Convolutional Networks (GCNs) and Voting module
 
-## Context
 Future maritime operations will require mapping and describing the seafloor at high precision. On this basis, 
 this project aims to detect 3D objects from point cloud sonar data (e.g., geological mounds with
 specific geometries). Terrain information is captured via AUV echo-sounders (bathymetry), then processed via GIS 
