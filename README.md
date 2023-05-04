@@ -11,22 +11,21 @@ software.
 |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
 | Map-view examples of RGB-projected topographic curvature (shaded, 1-m resolution) resulting from principal component analysis. Annotated structures correspond to convex-type mounds (objects of interest). Inlet picture shows an AUV collecting terrain data via echo-sounding. |
 
-### About data
+## About data
 Chunks of the high-resolution bathymetry data collected were extracted according to regions delineated via GIS, 
 for training purposes, i.e. individual chunks are single training 3D point clouds fed to the network (example 
 shown in the above figure, with 8 objects of interest). Because the point cloud is generally too dense, they must
 be down-sampled (see below figure).
 
-| ![Down sampling](./figures/down_sampling.png)  |
-|:--:|
-| Down-sampling of a training point cloud using grid cells. Individual points are randomly sampled from every cell. 
-The cell size modulates the extent of sub-sampling. |
+|                                                                            ![Down sampling](./figures/down_sampling.png)                                                                             |
+|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+|                Down-sampling of a training point cloud using grid cells. Individual points are randomly sampled from every cell. The cell size modulates the extent of sub-sampling.                 |
 
 To help our algorithm learn from vertex coordinates, we rescale a vertex $x_i$ with 3D coordinates as:
 ![Transform equation](./figures/transform_equation.png)
 
 
-### About the algorithm
+## About the algorithm
 This algorithm allows recognizing 3D objects directly from point clouds using XYZ information. Terrain geometry is first captured via 
 graph convolutional networks (backbone), then a voting and proposal module generates boxes with given dimensions and 
 orientation, at estimated object centroids (votes) - the module is implemented in a similar fashion than proposed in 
@@ -61,16 +60,17 @@ and M is the number of nodes constituting an object q.
 where $y_i$ and $y ̂_i$ represent ground truth and prediction respectively, K the batch size and λ and γ represent 
 factors solving the class imbalance in segmentation task. 
 
-### About results
-Comprehensive results reveal that detection 
-performance on 3D dataset is challenging due to the imprecise geometry of natural objects (geological mounds) i.e. 
+## About the results
+Detection performance on 3D dataset is challenging due to the imprecise geometry of natural objects (geological mounds) i.e. 
 the spatial continuity, as well as the angularity, circularity, width and height, of such objects vary significantly.
 
-|                                     ![Point cloud](./figures/point_cloud_scene.png)                                     |
-|:-----------------------------------------------------------------------------------------------------------------------:|
-| *Point cloud seabed terrain (deep-sea volcanic environment). Examples of structures of interest are enclosed in boxes.* |
+Example of training curves for semantic segmentation:
+![Semantic metric](./figures/semantic_metric.png)
 
-### Usage
+Example of boxes predicted:
+![Point cloud](./figures/point_cloud_scene.png)
+
+## Usage
 Run with Python console, e.g. the train module:
 ```python
 python train.py --gpu_memory 0.2 --gpu_device 1 --model_folder model_001
@@ -79,7 +79,7 @@ The above-witten options give you possibilities to limit the usage of GPU memory
 considering the GPU device 1 (if your infrastructure consists of 2 or more GPUs). Variables of the previously 
 trained model `model_001` are restored.
 
-(2) Running the _predict_ module will generate and display boxes for a given point cloud data folder:
+Running the _predict_ module will generate and display boxes for a given point cloud data folder:
 ```python
 python predict.py --data_folder folder_001 --semantics_only True
 ```
