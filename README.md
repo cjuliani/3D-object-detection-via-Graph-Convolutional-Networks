@@ -64,7 +64,7 @@ factors solving the class imbalance in segmentation task.
 Detection performance on 3D dataset is challenging due to the imprecise geometry of natural objects (geological mounds) i.e. 
 the spatial continuity, as well as the angularity, circularity, width and height, of such objects vary significantly.
 
-**Example of training curves for semantic segmentation:**
+**Example of training curves for total loss (left) and f1 metric (right) for semantic segmentation:**
 ![Semantic metric](./figures/semantic_metric.png)
 
 **Example of boxes predicted:**
