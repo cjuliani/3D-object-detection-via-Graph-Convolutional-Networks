@@ -33,10 +33,10 @@ orientation, at estimated object centroids (votes) - the module is implemented i
 |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
 | The suggested detection framework with a pyramid graph (backbone) network pooling and up-sampling graphs. The generated seeds consist of n points with C features plus 3 coordinates. Multilayer perceptrons (MLP) estimate object centers (votes) and semantic classes separately. The proposal module is a sub-network calculating m foreground bounding boxes (m≤n). Next, the proposals are clustered into k groups given the object centers. Finally, we obtain k 3D bounding boxes after applying a non-maximum-suppression (NMS) to each clustered proposal iteratively. |
 
-Assuming $n_pos$ the number of foreground points in a batch, and K the batch size, the 3D boxes can be estimated 
+Assuming $n_{pos}$ the number of foreground points in a batch, and K the batch size, the 3D boxes can be estimated 
 using:
 
-* **(1) the regression loss**: assuming $n_pos$ the number of foreground points in a batch, and K the batch size
+* **(1) the regression loss**:
 
 ![Regression loss](./figures/regression_loss.png)
 
