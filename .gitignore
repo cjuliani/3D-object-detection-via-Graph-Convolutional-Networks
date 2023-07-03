@@ -9,3 +9,4 @@ dataset/validation/*
 dataset/test/*
 dataset/to_detect/*
 dataset/to_visualize/
+original_project
